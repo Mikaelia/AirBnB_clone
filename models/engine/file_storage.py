@@ -1,31 +1,35 @@
 #!/usr/bin/python3
 '''FileStorage class module'''
 import json
+from ast import literal_eval
+from models.base_model import BaseModel
 
 
 class FileStorage():
     '''FileStorage class'''
-        __file_path = 'file.json'
-        __objects = {}
+    __file_path = 'file.json'
+    __objects = {}
     def all(self):
         '''returns the dictionary __objects'''
-        return __objects
+        return FileStorage.__objects
     def new(self, obj):
         '''sets class.id key with obj value'''
-        __objects["{}.{}".format(obj.__class__.__name__, obj.id)] = obj
+        print("This is my objects: {}".format(FileStorage.__objects))
+        FileStorage.__objects["{}.{}".format(obj.__class__.__name__, obj.id)] = obj
     def save(self):
         '''serializes __objects to the JSON file'''
-        '''turning __objects into dict'''
         mydict = {}
-        for k, v  in __objects.items()
+        for k, v  in FileStorage.__objects.items():
             mydict[k] = v.to_dict()
-        with open(__file_path, mode='w+', encoding='utf-8') as f:
+        with open(FileStorage.__file_path, mode='w', encoding='utf-8') as f:
             json.dump(mydict, f)
     def reload(self):
         '''deserializes the JSON file to __objects if file exists'''
         try:
-            with open(self.__file_path, mode='r') as f:
-                self.__objects = json.load(f)
-                '''eval'''
+            with open(FileStorage.__file_path, mode='r', encoding='utf-8') as f:
+                jdict = json.load(f)
+                for k, v in jdict.items():
+                    newobj = eval(v['__class__'])(**v)
+                    FileStorage.__objects[k] = newobj
         except FileNotFoundError:
             pass
