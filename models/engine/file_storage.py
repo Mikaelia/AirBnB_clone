@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 '''FileStorage class module'''
 import json
-from ast import literal_eval
 from models.base_model import BaseModel
 
 
@@ -14,7 +13,6 @@ class FileStorage():
         return FileStorage.__objects
     def new(self, obj):
         '''sets class.id key with obj value'''
-        print("This is my objects: {}".format(FileStorage.__objects))
         FileStorage.__objects["{}.{}".format(obj.__class__.__name__, obj.id)] = obj
     def save(self):
         '''serializes __objects to the JSON file'''
@@ -28,8 +26,8 @@ class FileStorage():
         try:
             with open(FileStorage.__file_path, mode='r', encoding='utf-8') as f:
                 jdict = json.load(f)
-                for k, v in jdict.items():
-                    newobj = eval(v['__class__'])(**v)
-                    FileStorage.__objects[k] = newobj
+            for k, v in jdict.items():
+                newobj = eval(v['__class__'])(**v)
+                FileStorage.__objects[k] = newobj
         except FileNotFoundError:
             pass
