@@ -5,28 +5,27 @@ import json
 
 class FileStorage():
     '''FileStorage class'''
-    def __init__(self, file_path=None, objects=None):
-        '''Initialization of FileStorage instance
-            Args:
-                file_path (str): path to the JSON file
-                objects (dict): will store all objects by <class name>.id
-        '''
-        self.__file_path = file_path
-        self.__objects = objects
+        __file_path = 'file.json'
+        __objects = {}
     def all(self):
         '''returns the dictionary __objects'''
-        return self.__objects
+        return __objects
     def new(self, obj):
         '''sets class.id key with obj value'''
-        self.__objects[self.__class__.__name__] = obj
+        __objects["{}.{}".format(obj.__class__.__name__, obj.id)] = obj
     def save(self):
         '''serializes __objects to the JSON file'''
-        with open(self.__file_path) as f:
-            json.dump(self.__objects, f)
+        '''turning __objects into dict'''
+        mydict = {}
+        for k, v  in __objects.items()
+            mydict[k] = v.to_dict()
+        with open(__file_path, mode='w+', encoding='utf-8') as f:
+            json.dump(mydict, f)
     def reload(self):
         '''deserializes the JSON file to __objects if file exists'''
         try:
-            with open(self.__file_path) as f:
+            with open(self.__file_path, mode='r') as f:
                 self.__objects = json.load(f)
-        except OSError:
+                '''eval'''
+        except FileNotFoundError:
             pass
