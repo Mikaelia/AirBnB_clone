@@ -1,15 +1,22 @@
 #!/usr/bin/python3
 import cmd
+from models.base_model import BaseModel
+
+
+classes = ['BaseModel']
 
 class HBNBCommand(cmd.Cmd):
 
-    def do_hello(self, args):
-        """Says hello. If you provide a name, it will greet you with it."""
-        if len(args) == 0:
-            name = 'stranger'
+    def do_create(self, args):
+        if not args:
+            print('** class name missing **')
+        if args not in classes:
+            print("** class doesn't exist **")
         else:
-            name = args
-        print("Hello, {}".format(name))
+            new = BaseModel()
+            new.save()
+            print(new.id)
+
 
     def do_quit(self, args):
         """Quits the program."""
