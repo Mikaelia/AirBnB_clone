@@ -6,7 +6,7 @@ from models import storage
 classes = ['BaseModel', 'User', 'State',
            'City', 'Amenity', 'Place', 'Review']
 
-def checkme(args):
+def checkme(args, name=''):
     arglist = args.split(' ')
     argcount = len(arglist)
     objdict = {}
@@ -17,7 +17,11 @@ def checkme(args):
         print('** instance id missing **')
     elif arglist[0] not in classes:
         print("** class doesn't exist **")
-
+    elif name == 'update' and argcount < 4:
+        if argcount < 3:
+            print('** attribute name missing **')
+        else:
+            print('** value missing **')
     else:
         objdict = storage.all()
         key = '{}.{}'.format(arglist[0], arglist[1])
@@ -66,6 +70,22 @@ class HBNBCommand(cmd.Cmd):
         if objtuple:
             del objtuple[0][objtuple[1]]
             storage.save()
+    def do_update(self, args):
+        '''Updates an instance/JSON file by adding or updating attribute'''
+        arglist = args.split(' ')
+        objtuple = checkme(args, 'update')
+        key = arglist[2]
+        newval = arglist[3]
+        if objtuple:
+            myobjdict = vars(objtuple[0][objtuple[1]])
+            if key in myobjdict:
+                val = myobjdict[key]
+                cast_val = type(val)(newval)
+                myobjdict[key] = cast_val
+            else:
+                myobjdict[key] = newval
+            storage.save()
+            print(myobjdict)
 
     def emptyline(self):
             pass
