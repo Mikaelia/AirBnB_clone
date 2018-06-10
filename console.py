@@ -51,6 +51,13 @@ class HBNBCommand(cmd.Cmd):
         '''Quits the program.'''
         raise SystemExit
 
+    def do_destroy(self, args):
+        '''Destroys an instance and updates JSON file'''
+        objtuple = checkme(args)
+        if objtuple:
+            del objtuple[0][objtuple[1]]
+            storage.save()
+
     def emptyline(self):
             pass
 
