@@ -25,7 +25,7 @@ def checkme(args, name=''):
             print('** value missing **')
     else:
         objdict = storage.all()
-        key = '{}.{}'.format(class_name, obj_id)
+        key = '{}.{}'.format(class_name, arglist[1])
         if key in objdict.keys():
             return (objdict, key)
         else:
@@ -37,7 +37,7 @@ class HBNBCommand(cmd.Cmd):
 
     def do_create(self, args):
         '''creates model instance'''
-        if checkme(args, 'create'):
+        if args == 'BaseModel':
             new = BaseModel()
             new.save()
             print(new.id)
