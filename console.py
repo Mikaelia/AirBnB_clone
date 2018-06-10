@@ -32,10 +32,8 @@ class HBNBCommand(cmd.Cmd):
     def do_create(self, args):
         if not args:
             print('** class name missing **')
-            return
         elif args not in classes:
             print("** class doesn't exist **")
-            return
         else:
             new = BaseModel()
             new.save()
@@ -47,11 +45,22 @@ class HBNBCommand(cmd.Cmd):
         if objtuple:
             print(objtuple[0][objtuple[1]])
 
-    def do_quit(self, args):
+    def do_all(self, args=''):
+        '''Prints all stored object instances'''
+        objlist = []
+        if args and args[0] not in classes:
+            print("** class doesn't exist **")
+        else:
+            objdict = storage.all()
+            for k, v in objdict.items():
+                objlist.append(v)
+            print(objlist)
+
+    def do_quit(self, args=''):
         '''Quits the program.'''
         raise SystemExit
 
-    def do_destroy(self, args):
+    def do_destroy(self, args=''):
         '''Destroys an instance and updates JSON file'''
         objtuple = checkme(args)
         if objtuple:

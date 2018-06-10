@@ -28,6 +28,9 @@ class BaseModel():
     def __str__(self):
         '''overloads __str__ method'''
         return("[{}] ({}) {}".format(self.__class__.__name__, self.id, self.__dict__))
+    def __repr__(self):
+        '''return string representation of object'''
+        return self.__str__()
     def save(self):
         '''updates `updated_at` with the current datetime'''
         self.updated_at = datetime.now()
