@@ -9,14 +9,15 @@ classes = ['BaseModel', 'User', 'State',
 def checkme(args, name=''):
     arglist = args.split(' ')
     argcount = len(arglist)
-    objdict = {}
 
-    if args is '':
+    if argcount:
+        class_name = arglist[0]
+    if not class_name:
         print('** class name missing **')
+    elif class_name not in classes:
+        print("** class doesn't exist **")
     elif argcount < 2:
         print('** instance id missing **')
-    elif arglist[0] not in classes:
-        print("** class doesn't exist **")
     elif name == 'update' and argcount < 4:
         if argcount < 3:
             print('** attribute name missing **')
@@ -24,21 +25,19 @@ def checkme(args, name=''):
             print('** value missing **')
     else:
         objdict = storage.all()
-        key = '{}.{}'.format(arglist[0], arglist[1])
+        key = '{}.{}'.format(class_name, obj_id)
         if key in objdict.keys():
             return (objdict, key)
         else:
             print('** no instance found **')
+            return
 
 
 class HBNBCommand(cmd.Cmd):
 
     def do_create(self, args):
-        if not args:
-            print('** class name missing **')
-        elif args not in classes:
-            print("** class doesn't exist **")
-        else:
+        '''creates model instance'''
+        if checkme(args, 'create'):
             new = BaseModel()
             new.save()
             print(new.id)
@@ -52,13 +51,15 @@ class HBNBCommand(cmd.Cmd):
     def do_all(self, args=''):
         '''Prints all stored object instances'''
         objlist = []
-        if args and args[0] not in classes:
-            print("** class doesn't exist **")
-        else:
+        arglist = args.split(' ')
+
+        if not arglist[0] or arglist[0] in classes:
             objdict = storage.all()
             for k, v in objdict.items():
                 objlist.append(v)
             print(objlist)
+        else:
+            print("** class doesn't exist **")
 
     def do_quit(self, args=''):
         '''Quits the program.'''
@@ -73,9 +74,10 @@ class HBNBCommand(cmd.Cmd):
     def do_update(self, args):
         '''Updates an instance/JSON file by adding or updating attribute'''
         arglist = args.split(' ')
-        objtuple = checkme(args, 'update')
         key = arglist[2]
         newval = arglist[3]
+
+        objtuple = checkme(args, 'update')
         if objtuple:
             myobjdict = vars(objtuple[0][objtuple[1]])
             if key in myobjdict:
