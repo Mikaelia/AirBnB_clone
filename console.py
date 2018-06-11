@@ -87,7 +87,6 @@ class HBNBCommand(cmd.Cmd):
             else:
                 myobjdict[key] = newval
             storage.save()
-            print(myobjdict)
 
     def emptyline(self):
             pass
