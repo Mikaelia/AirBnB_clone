@@ -2,6 +2,12 @@
 '''Console module'''
 import cmd
 from models.base_model import BaseModel
+from models.user import User
+from models.state import State
+from models.city import City
+from models.amenity import Amenity
+from models.place import Place
+from models.review import Review
 from models import storage
 
 classes = ['BaseModel', 'User', 'State',
@@ -43,10 +49,9 @@ class HBNBCommand(cmd.Cmd):
     def do_create(self, args):
         '''creates model instance'''
         checkme(args, 'create')
-        if args == 'BaseModel':
-            new = BaseModel()
-            new.save()
-            print(new.id)
+        instance = eval(args)()
+        instance.save()
+        print(instance.id)
 
     def do_show(self, args=''):
         '''Prints the string representation of an instance'''
