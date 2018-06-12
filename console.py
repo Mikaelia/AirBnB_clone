@@ -107,7 +107,7 @@ class HBNBCommand(cmd.Cmd):
     def do_EOF(self, line):
         '''Exit on Ctrl-D'''
         print()
-        return True
+        raise SystemExit
 
     def help_quit(self):
         '''Outlines quit usage'''
