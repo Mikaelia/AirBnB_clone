@@ -6,6 +6,7 @@ from models import storage
 classes = ['BaseModel', 'User', 'State',
            'City', 'Amenity', 'Place', 'Review']
 
+
 def checkme(args, name=''):
     arglist = args.split(' ')
     argcount = len(arglist)
@@ -74,6 +75,7 @@ class HBNBCommand(cmd.Cmd):
         if objtuple:
             del objtuple[0][objtuple[1]]
             storage.save()
+
     def do_update(self, args):
         '''Updates an instance/JSON file by adding or updating attribute'''
         arglist = args.split(' ')
@@ -92,10 +94,11 @@ class HBNBCommand(cmd.Cmd):
             storage.save()
 
     def emptyline(self):
-            pass
+        pass
 
     def help_quit(self):
         print('Quit command to exit the program\n')
+
 
 if __name__ == '__main__':
     prompt = HBNBCommand()
