@@ -16,6 +16,8 @@ def checkme(args, name=''):
         print('** class name missing **')
     elif class_name not in classes:
         print("** class doesn't exist **")
+    elif name == 'create':
+        return
     elif argcount < 2:
         print('** instance id missing **')
     elif name == 'update' and argcount < 4:
@@ -37,6 +39,7 @@ class HBNBCommand(cmd.Cmd):
 
     def do_create(self, args):
         '''creates model instance'''
+        checkme(args, 'create')
         if args == 'BaseModel':
             new = BaseModel()
             new.save()
