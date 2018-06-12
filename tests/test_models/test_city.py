@@ -64,5 +64,6 @@ class TestCityModel(unittest.TestCase):
         self.assertTrue('updated_at' in self.city1.__dict__)
         self.assertTrue('name' in self.city1.__dict__)
 
+
 if __name__ == "__main__":
     unittest.main()

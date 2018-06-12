@@ -56,5 +56,6 @@ class TeststateModel(unittest.TestCase):
         self.assertTrue('created_at' in self.state1.__dict__)
         self.assertTrue('updated_at' in self.state1.__dict__)
 
+
 if __name__ == "__main__":
     unittest.main()
