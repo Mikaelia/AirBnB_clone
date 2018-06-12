@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-'''creation of BaseModel class'''
+'''BaseModel module'''
 import uuid
 import models
 from datetime import datetime
@@ -31,21 +31,21 @@ class BaseModel():
             models.storage.new(self)
 
     def __str__(self):
-        '''overloads __str__ method'''
+        '''Overloads __str__ method'''
         return("[{}] ({}) {}".format(self.__class__.__name__,
                                      self.id, self.__dict__))
 
     def __repr__(self):
-        '''return string representation of object'''
+        '''Return string representation of object'''
         return self.__str__()
 
     def save(self):
-        '''updates `updated_at` with the current datetime'''
+        '''Updates `updated_at` with the current datetime'''
         self.updated_at = datetime.now()
         models.storage.save()
 
     def to_dict(self):
-        '''returns dictionary of the instance'''
+        '''Returns dictionary of the instance'''
         mydict = dict(vars(self))
         mydict['__class__'] = self.__class__.__name__
         mydict['created_at'] = self.created_at.isoformat()

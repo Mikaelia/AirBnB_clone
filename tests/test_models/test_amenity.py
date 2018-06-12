@@ -55,5 +55,6 @@ class TestAmenityModel(unittest.TestCase):
         self.assertTrue('updated_at' in self.amenity1.__dict__)
         self.assertTrue('name' in self.amenity1.__dict__)
 
+
 if __name__ == "__main__":
     unittest.main()

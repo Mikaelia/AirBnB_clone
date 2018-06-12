@@ -19,7 +19,7 @@ class TestBaseModel(unittest.TestCase):
     def tearDown(self):
         try:
             os.remove("file.json")
-        except:
+        except BaseException:
             pass
 
     def test_pep8(self):
@@ -51,6 +51,6 @@ class TestBaseModel(unittest.TestCase):
         self.assertIsInstance(base1_dict['created_at'], str)
         self.assertIsInstance(base1_dict['updated_at'], str)
 
+
 if __name__ == "__main__":
     unittest.main()
-
