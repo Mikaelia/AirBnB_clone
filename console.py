@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+'''Console module'''
 import cmd
 from models.base_model import BaseModel
 from models import storage
@@ -8,6 +9,7 @@ classes = ['BaseModel', 'User', 'State',
 
 
 def checkme(args, name=''):
+    '''Checks for correct arguments, returns object dict'''
     arglist = args.split(' ')
     argcount = len(arglist)
 
@@ -37,7 +39,7 @@ def checkme(args, name=''):
 
 
 class HBNBCommand(cmd.Cmd):
-
+    '''Console class'''
     def do_create(self, args):
         '''creates model instance'''
         checkme(args, 'create')
@@ -94,9 +96,11 @@ class HBNBCommand(cmd.Cmd):
             storage.save()
 
     def emptyline(self):
+        '''Reasserts prompt on empy input'''
         pass
 
     def help_quit(self):
+        '''Outlines quit usage'''
         print('Quit command to exit the program\n')
 
 
