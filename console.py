@@ -104,6 +104,11 @@ class HBNBCommand(cmd.Cmd):
         '''Reasserts prompt on empy input'''
         pass
 
+    def do_EOF(self, line):
+        '''Exit on Ctrl-D'''
+        print()
+        return True
+
     def help_quit(self):
         '''Outlines quit usage'''
         print('Quit command to exit the program\n')
