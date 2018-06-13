@@ -23,10 +23,11 @@ def checkme(args, name=''):
         class_name = arglist[0]
     if not class_name:
         print('** class name missing **')
+        return None
     elif class_name not in classes:
         print("** class doesn't exist **")
     elif name == 'create':
-        return
+        return 1
     elif argcount < 2:
         print('** instance id missing **')
     else:
@@ -48,10 +49,10 @@ class HBNBCommand(cmd.Cmd):
     '''Console class'''
     def do_create(self, args):
         '''creates model instance'''
-        checkme(args, 'create')
-        instance = eval(args)()
-        instance.save()
-        print(instance.id)
+        if checkme(args, 'create'):
+            instance = eval(args)()
+            storage.save()
+            print(instance.id)
 
     def do_show(self, args=''):
         '''Prints the string representation of an instance'''
