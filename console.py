@@ -29,19 +29,19 @@ def checkme(args, name=''):
         return
     elif argcount < 2:
         print('** instance id missing **')
-    elif name == 'update' and argcount < 4:
-        if argcount < 3:
-            print('** attribute name missing **')
-        else:
-            print('** value missing **')
     else:
         objdict = storage.all()
         key = '{}.{}'.format(class_name, arglist[1])
-        if key in objdict.keys():
-            return (objdict, key)
-        else:
+
+        if key not in objdict.keys():
             print('** no instance found **')
-            return
+        elif name == 'update' and argcount < 4:
+            if argcount < 3:
+                print('** attribute name missing **')
+            else:
+                print('** value missing **')
+        else:
+                return (objdict, key)
 
 
 class HBNBCommand(cmd.Cmd):
@@ -85,12 +85,12 @@ class HBNBCommand(cmd.Cmd):
 
     def do_update(self, args):
         '''Updates an instance/JSON file by adding or updating attribute'''
-        arglist = args.split(' ')
-        key = arglist[2]
-        newval = arglist[3]
 
         objtuple = checkme(args, 'update')
         if objtuple:
+            arglist = args.split(' ')
+            key = arglist[2]
+            newval = arglist[3]
             myobjdict = vars(objtuple[0][objtuple[1]])
             if key in myobjdict:
                 val = myobjdict[key]
