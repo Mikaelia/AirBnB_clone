@@ -14,6 +14,7 @@ import os
 import pep8
 import json
 
+
 class TestFileStorageModel(unittest.TestCase):
     '''Testing File Storage'''
 
@@ -31,7 +32,7 @@ class TestFileStorageModel(unittest.TestCase):
         '''Removes json file'''
         try:
             os.remove("file.json")
-        except:
+        except BaseException:
             pass
 
     def test_pep8(self):
@@ -48,7 +49,6 @@ class TestFileStorageModel(unittest.TestCase):
         self.assertEqual(type(dic), dict)
         self.assertIs(dic, st._FileStorage__objects)
 
-
     def test_new(self):
         '''Tests new method'''
         s = FileStorage()
@@ -64,7 +64,7 @@ class TestFileStorageModel(unittest.TestCase):
         st = FileStorage()
         try:
             os.remove("file.json")
-        except:
+        except BaseException:
             pass
         with open("file.json", "w") as f:
             f.write("{}")
@@ -72,4 +72,3 @@ class TestFileStorageModel(unittest.TestCase):
             for line in r:
                 self.assertEqual(line, "{}")
         self.assertIs(st.reload(), None)
-
