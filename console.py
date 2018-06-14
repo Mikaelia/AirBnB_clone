@@ -13,7 +13,6 @@ from models import storage
 classes = ['BaseModel', 'User', 'State',
            'City', 'Amenity', 'Place', 'Review']
 
-
 def checkme(args, name=''):
     '''Checks for correct arguments, returns object dict'''
     arglist = args.split(' ')
