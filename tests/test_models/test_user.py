@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-'''user model unittest module'''
+'''User model unittest module'''
 import unittest
 from models.user import User
 import os
@@ -33,28 +33,34 @@ class TestuserModel(unittest.TestCase):
         self.assertEqual(f.total_errors, 0, "Style Error")
 
     def test_present(self):
+        '''Test docstring'''
         self.assertIsNotNone(User.__doc__)
 
     def test_attributes(self):
+        '''Test if contains attributes'''
         self.assertTrue(hasattr(User, "email"))
         self.assertTrue(hasattr(User, "password"))
         self.assertTrue(hasattr(User, "first_name"))
         self.assertTrue(hasattr(User, "last_name"))
 
     def test_values(self):
+        '''Tests correct value assignment'''
         self.assertTrue(self.user1.email, 'User@user.com')
         self.assertTrue(self.user1.password, 'password')
         self.assertTrue(self.user1.first_name, 'Lisa')
         self.assertTrue(self.user1.last_name, 'Olson')
 
     def test_init(self):
+        '''Test correct instantiation'''
         self.assertTrue(isinstance(self.user1, User))
 
     def test_save(self):
+        '''Test save method'''
         self.user1.save()
         self.assertNotEqual(self.user1.created_at, self.user1.updated_at)
 
     def test_to_dict(self):
+        '''Test to dict method and dictionary fuctionality'''
         user1_dict = self.user1.to_dict()
         self.assertEqual(self.user1.__class__.__name__, 'User')
         self.assertIsInstance(user1_dict['email'], str)

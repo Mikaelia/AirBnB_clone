@@ -46,6 +46,9 @@ class TestBaseModel(unittest.TestCase):
         self.assertTrue(hasattr(BaseModel, "__init__"))
         self.assertTrue(hasattr(BaseModel, "save"))
         self.assertTrue(hasattr(BaseModel, "to_dict"))
+        self.assertTrue("updated_at" in self.base1.__dict__)
+        self.assertTrue("created_at" in self.base1.__dict__)
+        self.assertTrue("id" in self.base1.__dict__)
 
     def test_init(self):
         '''Tests initialization'''
@@ -57,11 +60,15 @@ class TestBaseModel(unittest.TestCase):
         self.assertNotEqual(self.base1.created_at, self.base1.updated_at)
 
     def test_to_dict(self):
+        '''Tests to_dict method'''
+        self.assertEqual('name' in dir(self.base1), True)
+
+    def test_type(self):
+        '''Tests attribute type'''
         base1_dict = self.base1.to_dict()
         self.assertEqual(self.base1.__class__.__name__, 'BaseModel')
         self.assertIsInstance(base1_dict['created_at'], str)
         self.assertIsInstance(base1_dict['updated_at'], str)
-
 
 if __name__ == "__main__":
     unittest.main()

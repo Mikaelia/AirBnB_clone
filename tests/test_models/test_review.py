@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-'''review model unittest module'''
+'''Review model unittest module'''
 import unittest
 from models.review import Review
 import os
@@ -17,6 +17,7 @@ class TestReviewModel(unittest.TestCase):
 
     @classmethod
     def teardown(cls):
+        '''Tear down class'''
         del cls.review1
 
     def tearDown(self):
@@ -31,27 +32,37 @@ class TestReviewModel(unittest.TestCase):
         f = style.check_files(['models/review.py'])
         self.assertEqual(f.total_errors, 0, "Style Error")
 
+    def test_is_subclass(self):
+        '''Tests if subclass'''
+        self.assertTrue(issubclass(self.review1.__class__, Review), True)
+
     def test_present(self):
+        '''Tests doc string'''
         self.assertIsNotNone(Review.__doc__)
 
     def test_attributes(self):
+        '''Tests for attributes'''
         self.assertTrue(hasattr(Review, "place_id"))
         self.assertTrue(hasattr(Review, "text"))
         self.assertTrue(hasattr(Review, "user_id"))
 
     def test_values(self):
+        '''Testing for correct assignment'''
         self.assertTrue(self.review1.place_id, 'This')
         self.assertTrue(self.review1.user_id, 'That')
         self.assertTrue(self.review1.text, 'Other')
 
     def test_init(self):
+        '''Test init'''
         self.assertTrue(isinstance(self.review1, Review))
 
     def test_save(self):
+        '''Test save method'''
         self.review1.save()
         self.assertNotEqual(self.review1.created_at, self.review1.updated_at)
 
     def test_to_dict(self):
+        '''Test to dict method'''
         review1_dict = self.review1.to_dict()
         self.assertEqual(self.review1.__class__.__name__, 'Review')
         self.assertIsInstance(review1_dict['created_at'], str)
@@ -61,6 +72,7 @@ class TestReviewModel(unittest.TestCase):
         self.assertIsInstance(review1_dict['text'], str)
 
     def test_has_attributes(self):
+        '''Test for attributes'''
         self.assertTrue('id' in self.review1.__dict__)
         self.assertTrue('place_id' in self.review1.__dict__)
         self.assertTrue('created_at' in self.review1.__dict__)

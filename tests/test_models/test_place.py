@@ -7,9 +7,11 @@ import pep8
 
 
 class TestPlaceModel(unittest.TestCase):
+    '''Test Place class'''
 
     @classmethod
     def setUpClass(cls):
+        '''Setup method'''
         cls.place1 = Place()
         cls.place1.city_id = 'San Francisco'
         cls.place1.user_id = '1'
@@ -25,9 +27,10 @@ class TestPlaceModel(unittest.TestCase):
 
     @classmethod
     def teardown(cls):
+        '''Teardown method'''
         del cls.place1
 
-    def tearDown(self):
+    def tearDown(cls):
         try:
             os.remove("file.json")
         except BaseException:
@@ -39,10 +42,16 @@ class TestPlaceModel(unittest.TestCase):
         f = style.check_files(['models/place.py'])
         self.assertEqual(f.total_errors, 0, "Style Error")
 
+    def test_is_subclass(self):
+        '''Tests if subclass'''
+        self.assertTrue(issubclass(self.place1.__class__, Place), True)
+
     def test_present(self):
+        '''Test doc string'''
         self.assertIsNotNone(Place.__doc__)
 
     def test_attributes(self):
+        '''Testing for correct attributes'''
         self.assertTrue(hasattr(Place, "__init__"))
         self.assertTrue(hasattr(Place, "name"))
         self.assertTrue(hasattr(Place, "city_id"))
@@ -57,15 +66,21 @@ class TestPlaceModel(unittest.TestCase):
         self.assertTrue(hasattr(Place, "amenity_ids"))
 
     def test_init(self):
+        '''Testing correct initialization'''
         self.assertTrue(isinstance(self.place1, Place))
 
     def test_save(self):
+        '''Test correct save'''
         self.place1.save()
         self.assertNotEqual(self.place1.created_at, self.place1.updated_at)
 
     def test_to_dict(self):
+        '''Test to_dict method'''
         place1_dict = self.place1.to_dict()
         self.assertEqual(self.place1.__class__.__name__, 'Place')
+    def test_type(self):
+        '''Test for correct type'''
+        place1_dict = self.place1.to_dict()
         self.assertIsInstance(place1_dict['created_at'], str)
         self.assertIsInstance(place1_dict['updated_at'], str)
         self.assertIsInstance(place1_dict['name'], str)
@@ -79,6 +94,7 @@ class TestPlaceModel(unittest.TestCase):
         self.assertIsInstance(place1_dict['amenity_ids'], list)
 
     def test_has_attributes(self):
+        '''Test for attributes in dictionary'''
         self.assertTrue('id' in self.place1.__dict__)
         self.assertTrue('created_at' in self.place1.__dict__)
         self.assertTrue('updated_at' in self.place1.__dict__)
