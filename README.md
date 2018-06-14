@@ -1,7 +1,7 @@
 # AirBnb Clone Command Interpreter
-The goal for this project was to build a command line interpreter that can :
+The goal for this project was to build a command line interpreter that can:
 - Put in place a parent class to take care of the initialization, serialization and deserialization of future instances
-- Create a simple flow of serialization/deserialization: Instance <-> Dictionary <-> JSON strin <-> file
+- Create a simple flow of serialization/deserialization: Instance <-> Dictionary <-> JSON string <-> file
 - Create all classes used for AirBnb (User, State, City, Place..) 
 - Create the first abstracted storage engine of the project: File Storage
 - Create all unittests to validate all our classes and storage engine
