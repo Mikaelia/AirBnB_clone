@@ -1,0 +1,25 @@
+/* Places Section */
+.places {
+    margin: 40px 20px
+}
+    
+.places__title {
+    font-size: 30px;
+}
+    
+.places__container {
+    justify-content: center;
+    display: flex;
+    flex-wrap: wrap;
+    width: 1000px;
+    margin-left: -20px;
+}
+    
+.places__card {
+    text-align: center;
+    margin: 20px;
+    padding: 20px;
+    flex-basis: 390px;
+    border: solid 1px #FF5A5F;
+    border-radius: 4px;
+}
