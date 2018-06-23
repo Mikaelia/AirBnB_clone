@@ -1,0 +1,90 @@
+/* Places Section */
+
+.places {
+    margin: 40px 20px
+}
+
+/* Main section title */
+.places__title {
+    font-size: 30px;
+}
+
+/* Flex styling of place cards */
+.places__flex-container {
+    justify-content: center;
+    display: flex;
+    flex-wrap: wrap;
+    width: 1000px;
+    margin-left: -20px;
+}
+.places__flex-card {
+    position: relative;
+    text-align: center;
+    margin: 20px;
+    padding: 20px;
+    flex-basis: 390px;
+    border: solid 1px #FF5A5F;
+    border-radius: 4px;
+}
+
+/* Place card content style */
+.places__card-title {
+    display: block;
+    margin: auto;
+    font-size: 30px;
+    padding: 0 0 40px 0;
+}
+
+.price_by_night {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    border: 4px solid #FF5A5F;
+    border-radius: 50%;
+    min-width: 60px;
+    height: 60px;
+    line-height: 60px;
+    padding: 5px;
+    color: #FF5A5F;
+    font-size: 30px;
+    text-align: center;
+    vertical-align: middle;
+}
+
+/* Information section flex-box */
+.information {
+    height: 80px;
+    border: solid #DDDDDD;
+    border-width: 1px 0;
+    display: flex;
+    justify-content: center;
+
+}
+.information__flex-child {
+    width: 100px;
+}
+
+/* Icon specs */
+.information__logo {
+    display: block;
+    height: 60px;
+    margin-bottom: -5px;
+}
+#bathrooms.information__logo{
+    background: url("../images/icon_bath.png ") no-repeat center;
+}
+#bedrooms.information__logo {
+    background: url("../images/icon_bed.png") no-repeat center;
+}
+#guests.information__logo {
+    background: url("../images/icon_group.png") no-repeat center;
+}
+
+/* Resident user and description content style */
+.user {
+    text-align: left;
+    padding: 22px 0 10px 0;
+}
+.description {
+    text-align: left;
+}
