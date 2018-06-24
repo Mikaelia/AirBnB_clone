@@ -9,6 +9,7 @@
 }
 .footer__text {
   position: relative;
+  padding: 10px 0 10px 0;
   display: inline-block;
   margin: 0 auto;
 }
