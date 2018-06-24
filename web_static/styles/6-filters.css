@@ -15,6 +15,7 @@
       color: #FFFFFF;
       height: 48px;
       width: 20%;
+      border: solid #FF5A5F;
       border-radius: 4px;
       margin: 11px 30px;
     }
@@ -35,13 +36,13 @@
     
     /* Filter option box stylings */
     .locations {
-      padding: 10px 0 0 50px;
+      padding: 12px 0 0 50px;
       line-height: 23px;
       border: solid #DDDDDD;
       border-width: 0 1px 0 0;
     }
     .amenities {
-      padding: 10px 0 0 50px;
+      padding: 12px 0 0 50px;
       line-height: 23px;
     }
     .popover {

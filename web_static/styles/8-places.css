@@ -88,3 +88,24 @@
 .description {
     text-align: left;
 }
+.places__amenities {
+    margin-top: 40px;
+}
+.places__amenities-title {
+    font-size: 16px;
+    border-bottom: 1px #DDDDDD;
+}
+
+.amenity-icon {
+    display: inline-block;
+    height: 100%;
+}
+#wifi.amenity-icon {
+    background: url("../images/icon_wifi.png") no-repeat left;
+}
+#pets.amentiy-icon {
+    background: url("../images/icon_pets.png") no-repeat left;
+}
+#tv.amenity-icon {
+    background: url("../images/icon_tv.png") no-repeat left;
+}
