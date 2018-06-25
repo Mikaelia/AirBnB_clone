@@ -1,3 +1,3 @@
-#AirBnB Clone - Web static
+# AirBnB Clone - Web static
 
-Base HTML and CSS for Airbnb project
+Development of base HTML and CSS files
