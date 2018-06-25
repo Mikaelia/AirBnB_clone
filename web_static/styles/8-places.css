@@ -70,13 +70,13 @@
     height: 60px;
     margin-bottom: -5px;
 }
-#bathrooms.information__logo{
+.information__logo.bathrooms {
     background: url("../images/icon_bath.png ") no-repeat center;
 }
-#bedrooms.information__logo {
+.information__logo.bedrooms {
     background: url("../images/icon_bed.png") no-repeat center;
 }
-#guests.information__logo {
+.information__logo.guests {
     background: url("../images/icon_group.png") no-repeat center;
 }
 
@@ -88,24 +88,59 @@
 .description {
     text-align: left;
 }
-.places__amenities {
+.places__subsection {
     margin-top: 40px;
+    text-align: left;
 }
-.places__amenities-title {
+.places__title {
+    height:40px;
+    border: solid #DDDDDD;
+    border-width: 0 0 1px 0;
+    line-height: 40px;
+    margin-bottom: 25px;
+}
+.places__title > h2 {
     font-size: 16px;
-    border-bottom: 1px #DDDDDD;
+}
+.amenity li {
+    margin: 5px 0 0 -13px;
+}
+.amenity-icon.wifi {
+    background: url("../images/wifi-connection-signal-symbol.svg") no-repeat left;
+    background-size: 20px, 20px;
+    height: 20px;
+    width: 20px;
+    padding: 0 10px 0 0;
+    margin-bottom: -3px;
+    display: inline-block;
+}
+.amenity-icon.pets {
+    background: url("../images/dog-paw.svg") no-repeat left;
+    background-size: 20px, 20px;
+    height: 20px;
+    width: 20px;
+    padding: 0 10px 0 0;
+    margin-bottom: -3px;
+    display: inline-block;
+}
+.amenity-icon.tv {
+    background: url("../images/tv.svg") no-repeat left;
+    background-size: 20px, 20px;
+    height: 20px;
+    width: 20px;
+    padding: 0 10px 0 0;
+    margin-bottom: -3px;
+    display: inline-block;
 }
 
-.amenity-icon {
-    display: inline-block;
-    height: 100%;
+.places__reviews-list > li {
+    list-style-type: none;
 }
-#wifi.amenity-icon {
-    background: url("../images/icon_wifi.png") no-repeat left;
+.places__reviews-list p {
+    font-size: 12px;
 }
-#pets.amentiy-icon {
-    background: url("../images/icon_pets.png") no-repeat left;
+h3 {
+    font-size: 14px;
+    margin-bottom: 5px;
 }
-#tv.amenity-icon {
-    background: url("../images/icon_tv.png") no-repeat left;
-}
+

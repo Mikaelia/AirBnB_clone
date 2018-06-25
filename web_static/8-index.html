@@ -1,19 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <link rel="body stylesheet" href="styles/4-common.css">
-    <link rel="header stylesheet" href="styles/3-header.css">
-    <link rel="footer stylesheet" href="styles/3-footer.css">
-    <link rel="filters stylesheet" href="styles/6-filters.css">
-    <link rel="places stylesheet" href="styles/8-places.css">
+    <link rel="stylesheet" href="styles/4-common.css">
+    <link rel="stylesheet" href="styles/3-header.css">
+    <link rel="stylesheet" href="styles/3-footer.css">
+    <link rel="stylesheet" href="styles/6-filters.css">
+    <link rel="stylesheet" href="styles/8-places.css">
     <link rel="shortcut icon" href="images/icon.png" type="image/png">
     <meta charset="utf-8">
     <title>AirBnB Clone</title>
   </head>
   <body>
+
     <header class="header">
       <div class="header__logo"></div>
     </header>
+
+<!--Filters Section-->
     <div class="container">
       <section class="filters">
         <button class="filters__button">Search</button>
@@ -29,15 +32,15 @@
           <div id="left" class="popover">
             <ul class="popover__list">
               <li>Arizona:</li>
-                <ul class="popover__sublist">
+                <li><ul class="popover__sublist">
                   <li>Page</li>
                   <li>Page2</li>
-                </ul>
+                </ul></li>
               <li>California:</li>
-                <ul class="popover__sublist">
+                <li><ul class="popover__sublist">
                   <li>San Francisco</li>
                   <li>Los Angeles</li>
-                </ul>
+                </ul></li>
             </ul>
           </div>
            <div id="right" class="popover" >
@@ -48,81 +51,149 @@
             </ul>
           </div>
         </div>
-      </section>   
+      </section>
+   
+<!--Places Section-->
       <section class="places">
       <h1 class="places__title">Places</h1>
       <div class="places__flex-container">
+        <!--First Card-->
         <article class="places__flex-card">
           <div class="price_by_night">$10</div>
           <h2 class="places__card-title">My home</h2>
           <div class="information">
             <div class="max_guest information__flex-child">
-              <div id="guests" class="information__logo"></div>
+              <div class="information__logo guests"></div>
               <p>7 Guests</p>
             </div>
             <div class="number_rooms information__flex-child">
-              <div id="bedrooms" class="information__logo"></div>
+              <div class="information__logo bedrooms"></div>
               <p>3 Bedrooms</p>
               </div>
             <div class="number_bathrooms information__flex-child">
-              <div id="bathrooms" class="information__logo"></div>
+              <div class="information__logo bathrooms"></div>
               <p>1 Bathroom</p>
             </div>
           </div>
           <div class="user"><b>Owner:</b> Pinky McFancypants</div>
           <div class="description">This is a lovely cottage in the bustling center of the city. It has three bedrooms, one bath. Can fit up to seven people. Great for the family. Close to several local markets and restaurants. Enjoy our private pool and porch overlooking the mountainside.</div>
-          <div class="places__amenities">
-              <h2 class="places__amenities-title">Amenities</h2>
-              <ul class="popover__sublist">
-                <li><div id="tv" class="amenity_icon"></div>TV</li>
-                <li><div id="wifi" class="amenity_icon"></div>Wifi</li>
-                <li><div id="pets" class="amenity_icon"></div>Pets Friendly</li>
-              </ul>
+           <!--Amenity Subsection-->
+          <div class="places__subsection places__amenities">
+            <div class="places__title">
+              <h2>Amenities</h2>
             </div>
+              <ul class="popover__sublist amenity">
+                <li><div class="amenity-icon tv"></div>TV</li>
+                <li><div class="amenity-icon wifi"></div>Wifi</li>
+                <li><div class="amenity-icon pets"></div>Pets Friendly</li>
+              </ul>
+          </div>
+          <!--Reviews Subsection-->
+          <div class="places__subsection places__previews">
+            <div class="places__title">
+              <h2>2 Reviews</h2>
+            </div>
+            <ul class="places__reviews-list">
+              <li><h3>From Jo Nickle on the 27th January 2017</h3></li>
+              <li><p>Nice house. I especially like the fact that is a house.<br><br></p></li>
+              <li><h3>From Bertha Jork on the 14th June 2014</h3></li>
+              <li><p>Cool location, and awesome porch.</p></li>
+            </ul>
+          </div>
+
         </article>
+        <!--Second Card-->
         <article class="places__flex-card">
           <div class="price_by_night">$50</div>
           <h2 class="places__card-title">Tiny house</h2>
           <div class="information">
             <div class="max_guest information__flex-child">
-              <div id="guests" class="information__logo"></div>
+              <div class="information__logo guests"></div>
               <p>1+ Guests</p>
             </div>
             <div class="number_rooms information__flex-child">
-              <div id="bedrooms" class="information__logo"></div>
+              <div class="information__logo bedrooms"></div>
               <p>1 Bedrooms</p>
               </div>
             <div class="number_bathrooms information__flex-child">
-              <div id="bathrooms"class="information__logo"></div>
+              <div class="information__logo bathrooms"></div>
               <p>0 Bathroom</p>
             </div>
           </div>
           <div class="user"><b>Owner:</b> Finky McPancyfants</div>
           <div class="description">This is a lovely tiny house in the bustling center of the city. It has one bedroom, no baths. Can fit up to...depends on how close you are. Great the family (of one). Close to several local markets and restaurants. Enjoy our private driveway and roof overlooking the mountainside.</div>
+          <!--Amenity Subsection-->
+          <div class="places__subsection places__amenities">
+          <div class="places__title">
+            <h2>Amenities</h2>
+          </div>
+            <ul class="popover__sublist amenity">
+              <li><div class="amenity-icon tv"></div>TV</li>
+              <li><div class="amenity-icon wifi"></div>Wifi</li>
+              <li><div class="amenity-icon pets"></div>Pets Friendly</li>
+            </ul>
+          </div>
+        <!--Reviews Subsection-->
+          <div class="places__subsection places__previews">
+            <div class="places__title">
+              <h2>2 Reviews</h2>
+            </div>
+            <ul class="places__reviews-list">
+              <li><h3>From Jo Nickle on the 27th January 2017</h3></li>
+              <li><p>Nice house. I especially like the fact that is a house.<br><br></p></li>
+              <li><h3>From Bertha Jork on the 14th June 2014</h3></li>
+              <li><p>Cool location, and awesome porch.</p></li>
+            </ul>
+          </div>
         </article>
+        <!--Third Card-->
         <article class="places__flex-card">
           <div class="price_by_night">$100</div>
           <h2 class="places__card-title">Tallest tower</h2>
           <div class="information">
             <div class="max_guest information__flex-child">
-              <div id="guests" class="information__logo"></div>
+              <div class="information__logo guests"></div>
               <p>700 Guests</p>
             </div>
             <div class="number_rooms information__flex-child">
-              <div id="bedrooms" class="information__logo"></div>
+              <div class="information__logo bedrooms"></div>
               <p>300 Bedrooms</p>
               </div>
             <div class="number_bathrooms information__flex-child">
-              <div id="bathrooms" class="information__logo"></div>
+              <div class="information__logo bathrooms"></div>
               <p>1 Bathroom</p>
             </div>
           </div>
           <div class="user"><b>Owner:</b> Pinky McFancypants</div>
           <div class="description">This is a lovely castle in the bustling center of the kingdom. It has three hundred bedrooms, one bath (sorry). Can fit up to several hundred people. Great for the family (or many). Close to several local markets and restaurants. Enjoy our private pools and spires overlooking the mountainside.</div>
+          <!--Amenity Subsection-->
+          <div class="places__subsection places__amenities">
+          <div class="places__title">
+            <h2>Amenities</h2>
+          </div>
+            <ul class="popover__sublist amenity">
+              <li><div class="amenity-icon tv"></div>TV</li>
+              <li><div class="amenity-icon wifi"></div>Wifi</li>
+              <li><div class="amenity-icon pets"></div>Pets Friendly</li>
+            </ul>
+          </div>
+          <!--Reviews Subsection-->
+          <div class="places__subsection places__previews">
+            <div class="places__title">
+              <h2>2 Reviews</h2>
+            </div>
+            <ul class="places__reviews-list">
+              <li><h3>From Jo Nickle on the 27th January 2017</h3></li>
+              <li><p>Nice house. I especially like the fact that is a house.<br><br></p></li>
+              <li><h3>From Bertha Jork on the 14th June 2014</h3></li>
+              <li><p>Cool location, and awesome porch.</p></li>
+            </ul>
+          </div>
         </article>
       </div>
     </section>
     </div>
+    <!--Footer-->
     <footer class="footer">
       <div class="footer__text">
         Holberton School
