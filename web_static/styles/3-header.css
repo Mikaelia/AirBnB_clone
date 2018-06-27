@@ -7,7 +7,8 @@
 }
 .header__logo {
   display: block;
-  background: url("https://s3.amazonaws.com/intranet-projects-files/holbertonschool-higher-level_programming+/268/logo.png") no-repeat center left;
-  height: 100%;
+  background: url("../images/untitled\ \(5\).svg") no-repeat center left;
+  background-size: 130px 130px;
+  height: 70px;
   margin-left: 20px;
 }
